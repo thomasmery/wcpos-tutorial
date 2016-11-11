@@ -8,11 +8,22 @@
 	});
 
 	var ReportsRoute = app.Route.extend({
+
+		initialize: function (options) {
+
+		    this.collection = bb.Radio.request('entities', 'get', 'orders');
+
+		    console.log(this.collection);
+
+		},
+
 		render: function(){
 		  var container = app.layout.getRegion('main');
 		  var view = new ReportsView();
 		  container.show(view);
 		}
+
+
 	});
 
 	var ReportsRouter = app.Router.extend({
